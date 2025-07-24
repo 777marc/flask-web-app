@@ -86,4 +86,8 @@ def login_required(view):
 
         return view(**kwargs)
 
-    return wrapped_view        
+    return wrapped_view
+
+@bp.route('/login', methods=('GET', 'POST'))
+def logout():
+    return render_template('auth/login.html')
