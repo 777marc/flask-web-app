@@ -90,4 +90,5 @@ def login_required(view):
 
 @bp.route('/login', methods=('GET', 'POST'))
 def logout():
+    session.clear()
     return render_template('auth/login.html')
