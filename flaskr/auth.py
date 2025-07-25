@@ -88,7 +88,8 @@ def login_required(view):
 
     return wrapped_view
 
-@bp.route('/login', methods=('GET', 'POST'))
+
+@bp.route('/logout')
 def logout():
     session.clear()
-    return render_template('auth/login.html')
+    return redirect(url_for('index'))
