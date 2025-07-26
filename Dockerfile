@@ -6,6 +6,8 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+COPY ./flaskr /app
+
 ARG UID=10001
 RUN adduser \
     --disabled-password \
@@ -25,7 +27,7 @@ USER appuser
 
 COPY . .
 
-EXPOSE 8000
+EXPOSE 8080
 
 # Run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:flaskr/blog"]
